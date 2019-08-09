@@ -1,0 +1,67 @@
+﻿  NetworkingUtils.cpp
+  OscOutboundPacketStream.cpp
+  OscPrintReceivedElements.cpp
+  OscReceivedElements.cpp
+  OscTypes.cpp
+  UdpSocket.cpp
+  FlashSender.cpp
+  OneEuroFilter.cpp
+f:\github\tuio11_cpp\tuio\oneeurofilter.h(23): warning C4005: “_USE_MATH_DEFINES”: 宏重定义
+  f:\github\tuio11_cpp\tuio\oneeurofilter.cpp: note: 参见“_USE_MATH_DEFINES”的前一个定义
+  OscReceiver.cpp
+f:\github\tuio11_cpp\tuio\tuiopoint.h(22): warning C4005: “_USE_MATH_DEFINES”: 宏重定义
+  f:\github\tuio11_cpp\tuio\oscreceiver.cpp: note: 参见“_USE_MATH_DEFINES”的前一个定义
+  TcpReceiver.cpp
+f:\github\tuio11_cpp\tuio\tuiopoint.h(22): warning C4005: “_USE_MATH_DEFINES”: 宏重定义
+  f:\github\tuio11_cpp\tuio\tcpreceiver.cpp: note: 参见“_USE_MATH_DEFINES”的前一个定义
+  TcpSender.cpp
+  TuioBlob.cpp
+f:\github\tuio11_cpp\tuio\tuiopoint.h(22): warning C4005: “_USE_MATH_DEFINES”: 宏重定义
+  f:\github\tuio11_cpp\tuio\tuioblob.cpp: note: 参见“_USE_MATH_DEFINES”的前一个定义
+f:\github\tuio11_cpp\tuio\tuioblob.cpp(110): warning C4305: “-=”: 从“double”到“float”截断
+f:\github\tuio11_cpp\tuio\tuioblob.cpp(111): warning C4305: “+=”: 从“double”到“float”截断
+f:\github\tuio11_cpp\tuio\tuioblob.cpp(118): warning C4305: “-=”: 从“double”到“float”截断
+f:\github\tuio11_cpp\tuio\tuioblob.cpp(119): warning C4305: “+=”: 从“double”到“float”截断
+f:\github\tuio11_cpp\tuio\tuioblob.cpp(122): warning C4305: “-=”: 从“double”到“float”截断
+f:\github\tuio11_cpp\tuio\tuioblob.cpp(123): warning C4305: “+=”: 从“double”到“float”截断
+  TuioClient.cpp
+f:\github\tuio11_cpp\tuio\tuiopoint.h(22): warning C4005: “_USE_MATH_DEFINES”: 宏重定义
+  f:\github\tuio11_cpp\tuio\tuioclient.cpp: note: 参见“_USE_MATH_DEFINES”的前一个定义
+  TuioContainer.cpp
+f:\github\tuio11_cpp\tuio\tuiopoint.h(22): warning C4005: “_USE_MATH_DEFINES”: 宏重定义
+  f:\github\tuio11_cpp\tuio\tuiocontainer.cpp: note: 参见“_USE_MATH_DEFINES”的前一个定义
+  TuioCursor.cpp
+f:\github\tuio11_cpp\tuio\tuiopoint.h(22): warning C4005: “_USE_MATH_DEFINES”: 宏重定义
+  f:\github\tuio11_cpp\tuio\tuiocursor.cpp: note: 参见“_USE_MATH_DEFINES”的前一个定义
+  TuioDispatcher.cpp
+f:\github\tuio11_cpp\tuio\tuiopoint.h(22): warning C4005: “_USE_MATH_DEFINES”: 宏重定义
+  f:\github\tuio11_cpp\tuio\tuiodispatcher.cpp: note: 参见“_USE_MATH_DEFINES”的前一个定义
+  TuioManager.cpp
+f:\github\tuio11_cpp\tuio\tuiopoint.h(22): warning C4005: “_USE_MATH_DEFINES”: 宏重定义
+  f:\github\tuio11_cpp\tuio\tuiomanager.cpp: note: 参见“_USE_MATH_DEFINES”的前一个定义
+  TuioObject.cpp
+f:\github\tuio11_cpp\tuio\tuiopoint.h(22): warning C4005: “_USE_MATH_DEFINES”: 宏重定义
+  f:\github\tuio11_cpp\tuio\tuioobject.cpp: note: 参见“_USE_MATH_DEFINES”的前一个定义
+f:\github\tuio11_cpp\tuio\tuioobject.cpp(80): warning C4305: “-=”: 从“double”到“float”截断
+f:\github\tuio11_cpp\tuio\tuioobject.cpp(81): warning C4305: “+=”: 从“double”到“float”截断
+f:\github\tuio11_cpp\tuio\tuioobject.cpp(88): warning C4305: “-=”: 从“double”到“float”截断
+f:\github\tuio11_cpp\tuio\tuioobject.cpp(89): warning C4305: “+=”: 从“double”到“float”截断
+f:\github\tuio11_cpp\tuio\tuioobject.cpp(92): warning C4305: “-=”: 从“double”到“float”截断
+f:\github\tuio11_cpp\tuio\tuioobject.cpp(93): warning C4305: “+=”: 从“double”到“float”截断
+  TuioPoint.cpp
+f:\github\tuio11_cpp\tuio\tuiopoint.h(22): warning C4005: “_USE_MATH_DEFINES”: 宏重定义
+  f:\github\tuio11_cpp\tuio\tuiopoint.cpp: note: 参见“_USE_MATH_DEFINES”的前一个定义
+  TuioServer.cpp
+f:\github\tuio11_cpp\tuio\tuiopoint.h(22): warning C4005: “_USE_MATH_DEFINES”: 宏重定义
+  f:\github\tuio11_cpp\tuio\tuioserver.cpp: note: 参见“_USE_MATH_DEFINES”的前一个定义
+  正在生成代码...
+  正在编译...
+  TuioTime.cpp
+  UdpReceiver.cpp
+f:\github\tuio11_cpp\tuio\tuiopoint.h(22): warning C4005: “_USE_MATH_DEFINES”: 宏重定义
+  f:\github\tuio11_cpp\tuio\udpreceiver.cpp: note: 参见“_USE_MATH_DEFINES”的前一个定义
+  UdpSender.cpp
+  WebSockSender.cpp
+  正在生成代码...
+    正在创建库 Debug\x64\libTUIO.lib 和对象 Debug\x64\libTUIO.exp
+  libTUIO.vcxproj -> F:\Github\TUIO11_CPP\windows\Debug\x64\libTUIO.dll

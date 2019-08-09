@@ -30,48 +30,69 @@
 
 #include "TuioDump.h"
 
-static std::string _address("localhost");
-static bool _udp = true;
-static int _port = 3333;
+void(*addTuioObject_ptr)(int, long, int, float, float, float);
+void(*updateTuioObject_ptr)(int, long, int, float, float, float, float, float, float, float);
+void(*removeTuioObject_ptr)(int, long, int);
+void(*addTuioCursor_ptr)(int, long, int, float, float);
+void(*updateTuioCursor_ptr)(int, long, int, float, float, float, float);
+void(*removeTuioCursor_ptr)(int, long, int);
+void(*addTuioBlob_ptr)(int, long, int, float, float, float, float, float, float);
+void(*updateTuioBlob_ptr)(int, long, int, float, float, float, float, float, float, float, float, float, float);
+void(*removeTuioBlob_ptr)(int, long, int);
 
 
 void TuioDump::addTuioObject(TuioObject *tobj) {
-	std::cout << "add obj " << tobj->getSymbolID() << " (" << tobj->getSessionID() << "/"<<  tobj->getTuioSourceID() << ") "<< tobj->getX() << " " << tobj->getY() << " " << tobj->getAngle() << std::endl;
+	addTuioObject_ptr(tobj->getSymbolID(), tobj->getSessionID(), tobj->getTuioSourceID(), tobj->getX(), tobj->getY(), tobj->getAngle());
+	//std::cout << "add obj " << tobj->getSymbolID() << " (" << tobj->getSessionID() << "/"<<  tobj->getTuioSourceID() << ") "<< tobj->getX() << " " << tobj->getY() << " " << tobj->getAngle() << std::endl;
 }
 
 void TuioDump::updateTuioObject(TuioObject *tobj) {
-	std::cout << "set obj " << tobj->getSymbolID() << " (" << tobj->getSessionID() << "/"<<  tobj->getTuioSourceID() << ") "<< tobj->getX() << " " << tobj->getY() << " " << tobj->getAngle() 
-				<< " " << tobj->getMotionSpeed() << " " << tobj->getRotationSpeed() << " " << tobj->getMotionAccel() << " " << tobj->getRotationAccel() << std::endl;
+	updateTuioObject_ptr(tobj->getSymbolID(), tobj->getSessionID(), tobj->getTuioSourceID(), tobj->getX(), tobj->getY(), tobj->getAngle(),
+						tobj->getMotionSpeed(), tobj->getRotationSpeed(), tobj->getMotionAccel(), tobj->getRotationAccel());
+
+	//std::cout << "set obj " << tobj->getSymbolID() << " (" << tobj->getSessionID() << "/"<<  tobj->getTuioSourceID() << ") "<< tobj->getX() << " " << tobj->getY() << " " << tobj->getAngle() 
+	//			<< " " << tobj->getMotionSpeed() << " " << tobj->getRotationSpeed() << " " << tobj->getMotionAccel() << " " << tobj->getRotationAccel() << std::endl;
 }
 
 void TuioDump::removeTuioObject(TuioObject *tobj) {
-	std::cout << "del obj " << tobj->getSymbolID() << " (" << tobj->getSessionID() << "/"<<  tobj->getTuioSourceID() << ")" << std::endl;
+	removeTuioObject_ptr(tobj->getSymbolID(), tobj->getSessionID(), tobj->getTuioSourceID());
+	//std::cout << "del obj " << tobj->getSymbolID() << " (" << tobj->getSessionID() << "/"<<  tobj->getTuioSourceID() << ")" << std::endl;
 }
 
 void TuioDump::addTuioCursor(TuioCursor *tcur) {
-	std::cout << "add cur " << tcur->getCursorID() << " (" <<  tcur->getSessionID() << "/"<<  tcur->getTuioSourceID() << ") " << tcur->getX() << " " << tcur->getY() << std::endl;
+	addTuioCursor_ptr(tcur->getCursorID(), tcur->getSessionID(), tcur->getTuioSourceID(), tcur->getX(), tcur->getY());
+
+	//std::cout << "add cur " << tcur->getCursorID() << " (" <<  tcur->getSessionID() << "/"<<  tcur->getTuioSourceID() << ") " << tcur->getX() << " " << tcur->getY() << std::endl;
 }
 
 void TuioDump::updateTuioCursor(TuioCursor *tcur) {
-	std::cout << "set cur " << tcur->getCursorID() << " (" <<  tcur->getSessionID() << "/"<<  tcur->getTuioSourceID() << ") " << tcur->getX() << " " << tcur->getY() 
-				<< " " << tcur->getMotionSpeed() << " " << tcur->getMotionAccel() << " " << std::endl;
+	updateTuioCursor_ptr(tcur->getCursorID(), tcur->getSessionID(), tcur->getTuioSourceID(), tcur->getX(), tcur->getY(), tcur->getMotionSpeed(), tcur->getMotionAccel());
+
+	//std::cout << "set cur " << tcur->getCursorID() << " (" <<  tcur->getSessionID() << "/"<<  tcur->getTuioSourceID() << ") " << tcur->getX() << " " << tcur->getY() 
+	//			<< " " << tcur->getMotionSpeed() << " " << tcur->getMotionAccel() << " " << std::endl;
 }
 
 void TuioDump::removeTuioCursor(TuioCursor *tcur) {
-	std::cout << "del cur " << tcur->getCursorID() << " (" <<  tcur->getSessionID() << "/"<<  tcur->getTuioSourceID() << ")" << std::endl;
+	removeTuioCursor_ptr(tcur->getCursorID(), tcur->getSessionID(), tcur->getTuioSourceID());
+	//std::cout << "del cur " << tcur->getCursorID() << " (" <<  tcur->getSessionID() << "/"<<  tcur->getTuioSourceID() << ")" << std::endl;
 }
 
 void TuioDump::addTuioBlob(TuioBlob *tblb) {
-	std::cout << "add blb " << tblb->getBlobID() << " (" << tblb->getSessionID() << "/"<<  tblb->getTuioSourceID() << ") "<< tblb->getX() << " " << tblb->getY() << " " << tblb->getAngle() << " " << tblb->getWidth() << " " << tblb->getHeight() << " " << tblb->getArea() << std::endl;
+	addTuioBlob_ptr(tblb->getBlobID(), tblb->getSessionID(), tblb->getTuioSourceID(), tblb->getX(), tblb->getY(), tblb->getAngle(), tblb->getWidth(), tblb->getHeight(), tblb->getArea());
+	//std::cout << "add blb " << tblb->getBlobID() << " (" << tblb->getSessionID() << "/"<<  tblb->getTuioSourceID() << ") "<< tblb->getX() << " " << tblb->getY() << " " << tblb->getAngle() << " " << tblb->getWidth() << " " << tblb->getHeight() << " " << tblb->getArea() << std::endl;
 }
 
 void TuioDump::updateTuioBlob(TuioBlob *tblb) {
-	std::cout << "set blb " << tblb->getBlobID() << " (" << tblb->getSessionID() << "/"<<  tblb->getTuioSourceID() << ") "<< tblb->getX() << " " << tblb->getY() << " " << tblb->getAngle() << " "<< tblb->getWidth() << " " << tblb->getHeight() << " " << tblb->getArea() 
-	<< " " << tblb->getMotionSpeed() << " " << tblb->getRotationSpeed() << " " << tblb->getMotionAccel() << " " << tblb->getRotationAccel() << std::endl;
+	updateTuioBlob_ptr(tblb->getBlobID(), tblb->getSessionID(), tblb->getTuioSourceID(), tblb->getX(), tblb->getY(), tblb->getAngle(), tblb->getWidth(), tblb->getHeight(), tblb->getArea(),
+		tblb->getMotionSpeed(), tblb->getRotationSpeed(), tblb->getMotionAccel(), tblb->getRotationAccel());
+
+	//std::cout << "set blb " << tblb->getBlobID() << " (" << tblb->getSessionID() << "/"<<  tblb->getTuioSourceID() << ") "<< tblb->getX() << " " << tblb->getY() << " " << tblb->getAngle() << " "<< tblb->getWidth() << " " << tblb->getHeight() << " " << tblb->getArea() 
+	//<< " " << tblb->getMotionSpeed() << " " << tblb->getRotationSpeed() << " " << tblb->getMotionAccel() << " " << tblb->getRotationAccel() << std::endl;
 }
 
 void TuioDump::removeTuioBlob(TuioBlob *tblb) {
-	std::cout << "del blb " << tblb->getBlobID() << " (" << tblb->getSessionID() << "/"<<  tblb->getTuioSourceID() << ")" << std::endl;
+	removeTuioBlob_ptr(tblb->getBlobID(), tblb->getSessionID(), tblb->getTuioSourceID());
+	//std::cout << "del blb " << tblb->getBlobID() << " (" << tblb->getSessionID() << "/"<<  tblb->getTuioSourceID() << ")" << std::endl;
 }
 
 void  TuioDump::refresh(TuioTime frameTime) {
@@ -79,58 +100,81 @@ void  TuioDump::refresh(TuioTime frameTime) {
 }
 
 
-static void show_help() {
-	std::cout << "Usage: TuioDump -p [port] -t -a [address]" << std::endl;
-	std::cout << "        -p [port] for alternative port number" << std::endl;
-	std::cout << "        -t for TUIO/TCP (dedault is TUIO/UDP)" << std::endl;
-	std::cout << "        -a [address] for remote TUIO/TCP server" << std::endl;
-	std::cout << "           use 'incoming' for TUIO/TCP socket" << std::endl;
-	std::cout << "        -h show this help" << std::endl;
-}
+TuioClient* client = nullptr;
 
-static void init(int argc, char** argv) {
-	char c;
-	
-#ifndef WIN32
-	while ((c = getopt(argc, argv, "p:a:th")) != -1) {
-		switch (c) {
-			case 't':
-				_udp = false;
-				break;
-			case 'a':
-				_address = std::string(optarg);
-				break;
-			case 'p':
-				_port = atoi(optarg);
-				break;
-			case 'h':
-				show_help();
-				exit(0);
-			default:
-				show_help();
-				exit(1);
-		}
-	}
-#endif
-}
 
-int main(int argc, char* argv[])
+extern "C" __declspec(dllexport) void Call_FuncInit(	void(*a)(int, long, int, float, float, float),
+														void(*b)(int, long, int, float, float, float, float, float, float, float),
+														void(*c)(int, long, int),
+														void(*d)(int, long, int, float, float),
+														void(*e)(int, long, int, float, float, float, float),
+														void(*f)(int, long, int),
+														void(*g)(int, long, int, float, float, float, float, float, float),
+														void(*h)(int, long, int, float, float, float, float, float, float, float, float, float, float),
+														void(*i)(int, long, int))
 {
-	init(argc, argv);
-	
-	OscReceiver *osc_receiver;
-	if (_udp) osc_receiver = new UdpReceiver(_port);
-	else {
-		if (_address=="incoming") osc_receiver = new TcpReceiver(_port);
-		else osc_receiver = new TcpReceiver(_address.c_str(), _port);
-	}
-	TuioDump dump;
-	TuioClient client(osc_receiver);
-	client.addTuioListener(&dump);
-	client.connect(true);
-
-	delete osc_receiver;
-	return 0;
+	addTuioObject_ptr = a;
+	updateTuioObject_ptr = b;
+	removeTuioObject_ptr = c;
+	addTuioCursor_ptr = d;
+	updateTuioCursor_ptr = e;
+	removeTuioCursor_ptr = f;
+	addTuioBlob_ptr = g;
+	updateTuioBlob_ptr = h;
+	removeTuioBlob_ptr = i;
 }
+
+
+extern "C" __declspec(dllexport) void Tuio_Deinit()
+{
+	if (client != nullptr)
+		client->disconnect();
+	client = nullptr;
+}
+extern "C" __declspec(dllexport) void Tuio_UDPinit(int port)
+{
+	if (client != nullptr)
+		Tuio_Deinit();
+	OscReceiver *osc_receiver;
+	osc_receiver = new UdpReceiver(port);
+	TuioDump dump;
+	client = new TuioClient(osc_receiver);
+	client->addTuioListener(&dump);
+	client->connect(false);
+}
+
+extern "C" __declspec(dllexport) void Tuio_TCPinit(char* ip, int port)
+{
+	if (client != nullptr)
+		Tuio_Deinit();
+	OscReceiver *osc_receiver;
+	osc_receiver = new TcpReceiver(ip, port);
+	TuioDump dump;
+	client = new TuioClient(osc_receiver);
+	client->addTuioListener(&dump);
+	client->connect(false);
+	
+}
+
+
+
+//int main(int argc, char* argv[])
+//{
+//	//init(argc, argv);
+//	_port = 3333;
+//	OscReceiver *osc_receiver;
+//	if (_udp) osc_receiver = new UdpReceiver(_port);
+//	else {
+//		if (_address=="incoming") osc_receiver = new TcpReceiver(_port);
+//		else osc_receiver = new TcpReceiver(_address.c_str(), _port);
+//	}
+//	TuioDump dump;
+//	TuioClient client(osc_receiver);
+//	client.addTuioListener(&dump);
+//	client.connect(true);
+//
+//	delete osc_receiver;
+//	return 0;
+//}
 
 
